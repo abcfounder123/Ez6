@@ -240,4 +240,154 @@ I do not want apple.
 
 ################################################################################################
 
+Daty.7
+
+Comparison Operators(6) (compare values => True, False)
+1. equal to (==) 
+2. not equal to (!=) 
+3. greater than (>)
+4. less than (<)
+5. greater than or equal to (>=)
+6. less than or equal to (<=)
+
+eg
+
+################################################
+
+Identity Operators(2) (compare ID)
+1. is
+2. is not
+
+################################################
+
+Mg Mg   123456
+Mg Mg   143257
+
+x == y    True
+x is y    False
+
+################################################
+
+Membership Operators(2)
+1. in
+2. not in
+
+################################################
+
+Logical Operators(3) (Logical value, boolean value, True/False)
+1. not
+2. and
+3. or
+
+################################################
+
+~ 1        =>   0             (bitwise not)  (precedence.2 )
+not True   =>   False         (logical not)  (precedence.10)
+
+1 & 1           =>   1        (bitwise and)
+True and True   =>   True     (logical and)
+
+0 | 1           =>   1        (bitwise and)
+False or True   =>   True     (logical and)
+
+################################################
+
+Ternary Operator, Conditional Operator, if else Operator, Conditional Expression
+
+left   middle   right
+
+condition => True   => left
+condition => False  => right
+
+
+permit = "sell" if age > 18 else "not sell"
+permit = "not sell"  age <= 18 "sell"
+
+result = "pass" if mark >= 40 else "fail"
+result = "fail" if mark < 40 else "pass"
+
+################################################
+
+14. Assignment Operator(13)
+
+1. Assign (=)
+
+2. Exponent and assign (**=)
+3. Multiply and assign (*=)
+4. Division and assign (/=)
+5. Floor Division and assign (//=)
+6. Modulus and assign (%=)
+7. Add and assign (+=)
+8. Substract and assign (-=)
+
+9. left shift and assign (<<=)
+10. Right shift and assign (>>=)
+11. Bitwise AND and assign (&=)
+12. Bitwise Exclusive OR and assign (^=)
+13. Bitwise OR and assign (|=)
+
+################################################
+
+x = x + 1  
+=>  x += 1
+add and assign
+
+################################################
+
+15. Walrus operator ( := )
+    - assign and use
+    - assign in operation
+
+################################################
+
+Precedence of Operators
+
+1. e 
+2. u       positive, negative, ~
+3. */ 
+4. +-
+
+5. shift     <<, >>
+6. and       &
+7. xor       ^
+8. or        |
+
+9. c          c.6, i.2, m.2     ==
+10. not
+11. and
+12. or
+
+13. t
+14. assignment     (assign, - and assign)  
+15. walrus
+
+################################################
+
+Types of Operators by usage
+
+a. Unary Operator(4)
+   1. positive       +1
+   2. negative       -1
+   3. ~              ~ 0011
+   4. not            not True
+
+b. Binary Operator(38)
+
+c. Ternary Operator(1)
+
+################################################
+
+Groups of Operators
+
+1. Arithmetic operators (9)
+2. Bitwise operators(6)
+3. Comparison Operators(6)
+4. Identity Operators(2)
+5. Membership Operators(2)
+6. Logical Operators(3)
+7. Assignment Operator(13)
+
+################################################################################################
+
+
 """
