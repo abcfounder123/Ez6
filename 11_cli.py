@@ -283,4 +283,391 @@ print(f"{feet} feet is equal to {meters} meters")
 
 ################################################################################################
 
+                90350 sec
+                  
+            1505 min           50 sec
+            
+        25 h        5min
+     
+    1 day   1 h   
+    
+
+23. Seconds to Minutes or Hours
+
+seconds = int(input("Enter time in seconds: "))
+minutes = seconds / 60
+hours = seconds / 3600
+print(f"{seconds} seconds is equal to {minutes:.2f} minutes or {hours:.2f} hours")
+
+################################################
+
+24. Seconds to Seconds, Minutes and Hours   ( 350, 3950)
+
+            3950 sec
+            
+            
+       1 hour        350 sec
+       
+                  5 min    50 sec
+                  
+seconds = int(input("Enter time in seconds: "))
+h = seconds // 3600               # 1 hour
+m = (seconds % 3600) // 60        # 350 sec // 60 => 5 min
+s = (seconds % 3600) % 60         # 50 sec
+print(f"{h}:{m}:{s}")
+
+################################################
+
+25. Seconds to Seconds, Minutes, Hours and days ( 90350 )
+25  --> 1 + 1
+
+seconds = int(input("Enter time in seconds: "))
+h = seconds // 3600
+m = (seconds % 3600) // 60
+s = (seconds % 3600) % 60
+d = h // 24
+nh = h % 24
+print(f"{d} days and {nh}:{m}:{s}")
+
+################################################################################################
+
+* rate
+
+1$ = 5000 Kysts
+10$ = ?
+Kysts =  10 / 1  * 5000  = 50000
+
+
+26. Currency Converter (USD to MMK)
+
+usd = float(input("Enter amount in USD: "))
+exchange_rate = 5000
+mmk = usd * exchange_rate                      
+print(f"{usd} USD is equal to {mmk} MMK.")
+
+dollar = float(input("Dollar : "))
+kyats = dollar * 5000
+print(f"{dollar} $ is equal to {kyats:.0f} kyats.")
+
+################################################
+
+27. Currency Converter (Custom Rate)
+
+1 $        -> 5000 kyats
+1 kyats    -> 0.0002 $
+
+1 $ -> 40 B
+1 B -> 0.025 $
+
+5%  to rate
+=> 100   ....   5
+=> 1     ....   =  1/100  * 5  = 5 / 100 = 0.05
+
+rate of 5% = 5/100 = 0.05
+rate of 10% = 10/100 = 0.1
+rate of 20% = 20/100 = 0.2
+rate of 25% = 25/100 = 0.25
+rate of 110% = 110/100 = 1.1
+rate of 107% = 1.07
+rate of 112.5% = 1.125
+rate of 200% = 2
+
+################################################
+
+amount = float(input("Enter amount: "))
+rate = float(input("Enter exchange rate: "))
+converted = amount * rate
+print(f"Converted amount: {converted}")
+
+################################################
+
+Enter amount: 10000
+Enter exchange rate: 0.0002
+Converted amount: 2.0
+
+Enter amount: 2
+Enter exchange rate: 5000
+Converted amount: 10000.0
+
+################################################
+
+28. Step-to-Calorie Converter
+
+1 Step -> 0.04 kilo calorie
+1 kcal -> 25 steps
+
+steps = int(input("Enter number of steps taken: "))
+calories_burned = steps * 0.04  # Approximation for an average person
+print(f"Calories burned: {calories_burned:.0f} kcal")
+
+calories_burned = int(input("Calories burned: "))
+steps = calories_burned * 25
+print(f"Number of steps : {steps:.0f} steps")
+
+################################################
+
+29. Storage Converter (GB to MB & KB)
+
+    60     60
+sec => min => hour
+
+ 1000
+b -> k -> m -> g
+
+ 1024
+b -> k -> m -> g
+
+
+10    = 10 ** 1
+100   = 10 ** 2
+1000  = 10 ** 3
+
+2 ** 1  = 2
+2 ** 2  = 4
+2 ** 3  = 8
+2 ** 4  = 16
+2 ** 5  = 32
+2 ** 6  = 64
+2 ** 7  = 128
+2 ** 8  = 256
+2 ** 9  = 512
+2 ** 10 = 1024
+2 ** 11 = 2048
+
+1kg = 1000 g
+1km = 1000 m
+
+1kb = 1000 bytes
+1kb = 1024 bytes
+
+gb = float(input("Enter storage in GB: "))
+mb = gb * 1000
+kb = gb * 1000 * 1000
+print(f"{gb} GB is equal to {mb} MB or {kb} KB")
+
+gb = float(input("Enter storage in GB: "))
+mb = gb * 1024  # 2 ** 10  Vs  10 ** 3
+kb = gb * 1024 * 1024
+print(f"{gb} GB is equal to {mb} MB or {kb} KB")
+
+################################################
+
+30. Bytes to GB + MB + KB + B
+
+                    34_567_891_234 bytes
+
+                  34_567_891 kb      234 b
+                  
+                 34_567 M     891 kb
+                  
+              34 G    567 M
+                                                                        
+################################################
+
+31. 
+
+bytes = int(input("Enter size in bytes: ")) # 34_567_891_234 bytes
+e = 1000
+
+kb = bytes // e # 34_567_891 KB
+b = bytes % e   # 234 B
+
+mb = kb // e # 34_567 MB
+kb2 = kb % e # 891 KB
+
+gb = mb // e # 34 GB
+mb2 = mb % e # 567 MB
+
+print(f"{bytes} bytes = {gb} GB {mb2} MB {kb2} KB {b} B")
+
+
+34567891234 bytes = 34 GB 567 MB 891 KB 234 B
+34567891234 bytes = 32 GB 198 MB 522 KB 290 B
+
+################################################
+
+bytes_size = int(input("Enter size in bytes: ")) # 34_567_891_234 bytes
+
+e = 1024
+
+kb = bytes_size // e 
+b = bytes_size % e 
+
+mb = kb // e 
+kb2 = kb % e
+
+gb = mb // e
+mb2 = mb % e 
+
+print(f"{bytes_size} bytes = {gb} GB {mb2} MB {kb2} KB {b} B")
+
+
+Enter size in bytes: 34_567_891_234
+34567891234 bytes = 32 GB 198 MB 522 KB 290 B
+
+################################################
+
+32.
+
+         12_345_678_900       bytes
+         
+      12 GB     345_678_900 bytes
+         
+              345 MB      678_900   bytes
+              
+                      678 KB     900  bytes
+
+
+bytes_size = int(input("Enter size in bytes: ")) # 12_345_678_900       bytes
+
+gb = bytes_size // 1e9                       # 12 GB
+mb = (bytes_size % 1e9) // 1e6               # 345 MB
+kb = ((bytes_size % 1e9) % 1e6) // 1e3       # 678 KB
+b = ((bytes_size % 1e9) % 1e6) % 1e3         # 900  bytes
+
+print(f"{gb} GB {mb} MB {kb} KB and {b} bytes")
+
+################################################
+
+bytes_size = int(input("Enter size in bytes: ")) # 12_345_678_900       bytes
+
+gb = bytes_size // (1024 ** 3)                               # 11 GB
+mb = (bytes_size % (1024 ** 3)) // (1024 ** 2)               # 509 MB
+kb = ((bytes_size % (1024 ** 3)) % (1024 ** 2)) // 1024       # 775 KB
+b = ((bytes_size % (1024 ** 3)) % (1024 ** 2)) % 1024         # 52 bytes
+
+print(f"{gb} GB {mb} MB {kb} KB and {b} bytes")
+
+################################################
+
+                  90350 sec
+                  
+            1505 min           50 sec        60
+            
+        25 h        5min                     60
+     
+     1 day 1 h                               24
+         
+################################################
+    
+                            90350 sec
+
+    86400              1 day         3950 sec
+    
+    3600                           1 h       350 sec
+    
+    60                                     5 min  50 sec
+
+n = 60 * 60 * 24 = 86400
+
+sec = int(input("Seconds = "))
+d = sec // 86400
+h = (sec % 86400) // 3600
+m = ((sec % 86400) % 3600) // 60
+s = ((sec % 86400) % 3600) % 60
+print(f"{d} day {h} : {m} : {s}")
+        
+################################################################################################
+
+platform
+1. system()
+2. version()
+3. architecture()[0] 
+
+sys
+1. version
+
+psutil (process and system utilities )
+1. virtual_memory() -> RAM 
+   - total = 8GB
+   - available = 3GB 
+   
+2. cpu_count(logical=False) # man = 2
+   cpu_count(logical=True)  # work = 4
+   
+3. disk_usage('/')
+   - total = 256GB
+   - free = 156GB 
+   
+4. cpu_percent(interval=1)     
+
+5. sensors_battery()
+   - power_plugged
+   - percent
+
+################################################
+
+1. Check Operating System
+
+
+import platform
+
+print("Operating System:", platform.system()) # mac OS and IOS based on Darwin OS
+
+################################################
+
+2. Check OS Version
+
+import platform
+print("OS Version:", platform.version())
+
+################################################
+
+3. Check Machine Type (32-bit or 64-bit)
+
+import platform
+print("Machine Type:", platform.architecture()[0])
+
+################################################
+
+4. Check Python Version
+
+import sys
+print("Python Version:", sys.version)
+
+################################################
+
+5. Check Total RAM / Available RAM (Memory)
+
+import psutil
+
+ram = psutil.virtual_memory()
+total = ram.total / ( 1024 ** 3 )
+available = ram.available / ( 1024 ** 3 )
+print(f"Total RAM:", total, "GB")
+print(f"Available RAM:", available, "GB")
+
+################################################
+
+6. Check CPU Information
+
+Physical CPU count = 2
+Logical CPU count = 4
+
+2   =>  4
+2   =>  2
+
+i5 U      => 4, 4 
+i5 H, HQ  => 4, 8 
+
+i3, i5, i7     (boy, man)
+
+i7 U      8, 8
+i5 H      4, 8
+
+i7 12 generation    
+m1                 
+
+1 km   => 6 min, 6 min
+1 km   => 10 min, 6 min
+1 km   => 15 min, 6 min
+          31 min, 18 min
+
+import psutil
+print("CPU Cores:", psutil.cpu_count(logical=False))        
+print("Logical CPUs:", psutil.cpu_count(logical=True))     
+
+################################################
+
+
 """
