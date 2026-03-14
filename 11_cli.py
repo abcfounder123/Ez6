@@ -669,5 +669,423 @@ print("Logical CPUs:", psutil.cpu_count(logical=True))
 
 ################################################
 
+7. Check Disk Usage (Total and Free Space)
+
+import psutil
+disk = psutil.disk_usage('/')
+t = disk.total / ( 1024 ** 3 )
+f = disk.free / ( 1024 ** 3 )
+print(f"Total Disk Space: {t:.0f} GB")
+print(f"Free Disk Space: {f:.0f} GB")
+
+################################################
+
+8. Check CPU Usage
+
+import psutil
+cpu = psutil.cpu_percent(interval=1)
+print(f"CPU Usage:", cpu, "%")
+
+################################################
+
+9. Check Battery Status
+
+import psutil
+
+battery = psutil.sensors_battery()
+percent = battery.percent
+charging = battery.power_plugged
+
+print(f"Battery Status: {percent}%")
+print("Charging:", charging)
+
+################################################################################################
+
+10. BMI (Body Mass Index) Calculator  (kg per m**2)
+
+weight = float(input("Enter weight in kg: "))
+height = float(input("Enter height in meters: "))
+bmi = weight / (height ** 2)
+print(f"Your BMI is: {bmi}")
+
+
+weight = float(input("Enter weight in lb: ")) * 0.454
+height = float(input("Enter height in ft: ")) * 0.3048
+bmi = weight / (height ** 2)
+print(f"Your BMI is: {bmi}")
+
+
+# 1lb = 0.454 kg  ( lb * 0.454 )
+# 1kg = 2.2lb     ( lb / 2.2 )
+
+# 1ft = 0.3048m   ( ft * 0.3048 )
+# 1m = 3.28 ft    ( ft / 3.28 )
+
+weight2 = float(input("Enter weight in lb: ")) * 0.454
+height_f = float(input("Enter height in ft: ")) * 0.3048
+height_i = float(input("Enter height in inches: ")) * 0.0254
+height2 = height_f + height_i
+
+bmi2 = weight2 / (height2 ** 2)
+print(f"Your BMI is: {bmi2}")
+
+################################################
+
+11. Heart Rate Zones Calculator
+
+age = int(input("Enter your age: "))
+max_heart_rate = 220 - age
+
+print(f"Maximum Heart Rate: {max_heart_rate} bpm")
+print(f"Fat Burn Zone (50-70%): {max_heart_rate * 0.5} - {max_heart_rate * 0.7} bpm")
+print(f"Cardio Zone (70-85%): {max_heart_rate * 0.7} - {max_heart_rate * 0.85} bpm")
+print(f"Peak Zone (85-100%): {max_heart_rate * 0.85} - {max_heart_rate} bpm")
+
+################################################
+
+12. Moles to Mass Converter
+
+molar_mass = float(input("Enter molar mass (g/mol): "))
+moles = float(input("Enter number of moles: "))
+print("Mass:", molar_mass * moles, "g")
+
+################################################
+
+13. Mass to Moles Converter
+
+mass = float(input("Enter mass (g): "))
+molar_mass = float(input("Enter molar mass (g/mol): "))
+print("Moles:", mass / molar_mass)
+
+################################################
+
+14. Concentration (Molarity) Calculator
+
+moles = float(input("Enter moles of solute: "))
+volume = float(input("Enter volume of solution (L): "))
+print("Molarity:", moles / volume, "M")
+
+################################################
+
+15. Dilution Calculator (M1V1 = M2V2)
+
+M1V1 = M2V2
+M2V2 = M1V1
+M2 = M1V1/V2
+
+M1 = float(input("Enter initial molarity (M): "))
+V1 = float(input("Enter initial volume (L): "))
+M2 = float(input("Enter final molarity (M): "))
+print("Final volume:", (M1 * V1) / M2, "L")
+
+################################################
+
+16. Work Done
+
+force = float(input("Enter force (N): "))
+distance = float(input("Enter distance (m): "))
+print("Work Done:", force * distance, "J")
+
+################################################
+
+17. Gravitational Force
+
+G = 6.674 * (10**-11)
+m1 = float(input("Enter mass of first object (kg): "))
+m2 = float(input("Enter mass of second object (kg): "))
+r = float(input("Enter distance between objects (m): "))
+print("Gravitational Force:", G * m1 * m2 / (r ** 2), "N")
+
+################################################
+
+18. Kinetic Energy ( 1/2.m.v**2 )  ( 0.5 * m * v ** 2 )
+
+mass = float(input("Enter mass (kg): "))
+velocity = float(input("Enter velocity (m/s): "))
+print("Kinetic Energy:", 0.5 * mass * velocity ** 2, "J")
+
+################################################
+
+19. Potential Energy (mgh) ( m * g * h )
+
+mass = float(input("Enter mass (kg): "))
+height = float(input("Enter height (m): "))
+g = 9.81
+ans = mass * g * height
+print("Potential Energy:", ans, "J")
+
+################################################
+
+20. Power Calculation (Electrical Power) ( P = VI ) ( V * I )
+
+voltage = float(input("Enter voltage (V): "))
+current = float(input("Enter current (A): "))
+
+print("Power:", voltage * current, "W")
+
+################################################
+
+21. Frequency and Wavelength (Wave Equation) (Frequency = speed / wavelength)
+
+Frequency = speed / wavelength
+
+wavelength = 3m
+speed = 12 m sec
+Frequency = 12 / 3 = 4
+
+speed = float(input("Enter wave speed (m/s): "))
+wavelength = float(input("Enter wavelength (m): "))
+print("Frequency:", speed / wavelength, "Hz")
+
+################################################
+
+22. Momentum
+
+mass = float(input("Enter mass (kg): "))
+velocity = float(input("Enter velocity (m/s): "))
+print("Momentum:", mass * velocity, "kg·m/s")
+
+################################################
+
+23. Ideal Gas Law Calculator (PV = nRT) (P = nRT/V) (P = n * R * T / V)
+
+V = float(input("Enter volume (L): "))
+n = float(input("Enter number of moles: "))
+R = 0.0821  # Gas constant (L·atm/mol·K)
+T = float(input("Enter temperature (K): "))
+print("Pressure:", n * R * T / V, "atm")
+
+################################################
+
+24. Percentage Composition
+
+element_mass = float(input("Enter mass of the element (g): "))             # oxygen = 10
+compound_mass = float(input("Enter total mass of the compound (g): "))     # H2O = 20 + 20 + 10 = 50
+print("Percentage composition:", (element_mass/compound_mass) * 100, "%")
+
+################################################
+
+25. Heat Energy Calculation (q = mcΔT) (mass * specific_heat * temp_change)
+
+mass = float(input("Enter mass (g): "))
+specific_heat = float(input("Enter specific heat capacity (J/g·°C): "))
+temp_change = float(input("Enter temperature change (°C): "))
+print("Heat energy:", mass * specific_heat * temp_change, "J")
+
+################################################
+
+26. Avogadro’s Law Calculator (V1/n1 = V2/n2) (v2 = (V1/n1) * n2 )
+
+20/10 = 40/20
+
+V1 = float(input("Enter initial volume (L): "))
+n1 = float(input("Enter initial moles: "))
+n2 = float(input("Enter final moles: "))
+print("Final volume:", (V1/n1) * n2, "L")
+
+################################################
+
+27. Running Pace Calculator
+
+5km   60 min
+1km   ? 
+=> 1 / 5 * 60  = 60/5
+
+distance = float(input("Enter distance in kilometers: "))
+time_minutes = float(input("Enter time taken in minutes: "))
+
+pace = time_minutes / distance
+print(f"Your running pace is {pace:.2f} minutes per km.")
+
+################################################
+
+28. Fuel Efficiency Converter (L/100km to MPG) (miles per gallon)
+
+mpg = 235.215 / liters_per_100km
+mpg * liters_per_100km = 235.215  
+liters_per_100km = 235.215 / mpg  
+
+liters_per_100km = float(input("Enter fuel efficiency in L/100km: "))
+mpg = 235.215 / liters_per_100km
+print(mpg, "MPG")
+
+mpg = float(input("Enter fuel efficiency in mpg: "))
+liters_per_100km = 235.215 / mpg
+print(liters_per_100km, "l per 100km.")
+
+################################################
+
+29. Square Root Calculator
+
+                16
+                
+            4        4
+            
+          
+            
+            4 ** (2/1)  = 16
+            16 ** (1/2) = 4
+
+number = float(input("Enter a number: "))
+sqrt = number ** (1/2)
+print(f"The square root of {number} is {sqrt}")
+
+# Cube Root Calculator
+number = float(input("Enter a number: "))
+print(f"The cube root of {number} is {number ** (1/3):.0f}")
+
+
+################################################
+
+30. Simple Interest  (p * r * t)
+
+100_000
+1 year = 100_000 * 0.1 = 10_000
+5 years = 10_000 * 5
+
+100    10
+1      ?  0.1
+
+% to rate  =>  % / 100
+=> 1/100 * 10 = 10/100 = 0.1
+
+p = float(input("Enter principal amount: "))
+r = float(input("Enter interest rate (%): ")) / 100  # 0.1
+t = float(input("Enter time (years): "))
+print("Simple Interest:", p * r * t)
+
+################################################
+
+31. Compound Interest
+
+p = 100_000
+1 year => 100_000 + 10_000 =>  110_000 
+2 year => 110_000 + 11_000 =>  121_000
+3 year => 121_000 + 12_100 =>  133_100
+
+################################################
+
+p = 100_000
+r = 0.1
+
+i = p * r # 10_000
+p = p + i # 110_000
+print(p)
+
+################################################
+
+p = 100_000
+r = 0.1
+
+i = p * r
+p = p + i
+
+i = p * r
+p = p + i
+
+i = p * r
+p = p + i
+
+i = p * r
+p = p + i
+
+i = p * r
+p = p + i
+
+print(f"5 year = {p}")
+
+################################################
+
+p = 100_000
+r = 0.1
+
+for _ in range(5):
+    i = p * r
+    p = p + i
+
+print(f"5 year = {p}")
+
+################################################
+
+p = float(input("Enter principal amount: "))
+r = float(input("Enter interest rate (%): ")) / 100 
+t = int(input("Enter time (years): ")) 
+
+for _ in range(t):
+    i = p * r
+    p = p + i
+
+print(f"{t} year = {p}")
+
+################################################################################################
+
+32. nested loop
+
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 4 = 8
+2 * 5 = 10
+2 * 6 = 12
+2 * 7 = 14
+2 * 8 = 16
+2 * 9 = 18
+2 * 10 = 20
+2 * 11 = 22
+2 * 12 = 24
+
+print(f"2 * 1 = ?")
+print(f"2 * 2 = ?")
+print(f"2 * 3 = ?")
+print(f"2 * 4 = ?")
+print(f"2 * 5 = ?")
+print(f"2 * 6 = ?")
+print(f"2 * 7 = ?")
+print(f"2 * 8 = ?")
+print(f"2 * 9 = ?")
+print(f"2 * 10 = ?")
+print(f"2 * 11 = ?")
+print(f"2 * 12 = ?")
+       
+################################################
+
+for l in range(2, 11, 1):
+    print(l)
+
+for r in range(1, 13, 1):
+    print(f"2 * {r} = {2 * r}")
+
+print("-" * 42)
+
+for r in range(1, 13, 1):
+    print(f"3 * {r} = {3 * r}")
+
+print("-" * 42)
+
+for r in range(1, 13, 1):
+    print(f"4 * {r} = {4 * r}")
+
+print("-" * 42)
+
+for r in range(1, 13, 1):
+    print(f"5 * {r} = {5 * r}")
+
+print("-" * 42)
+
+################################################
+
+for l in range(2, 17, 1): 
+    for r in range(1, 13, 1):
+        print(f"{l} * {r} = {l * r}")
+    print("-" * 42)
+
+################################################
+
+for l in range(2, 37, 1):
+    for r in range(12, 0, -1): 
+        print(f"{l} * {r} = {l * r}")
+    print("-" * 42)
+
+################################################################################################
 
 """
