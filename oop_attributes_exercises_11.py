@@ -3,6 +3,26 @@
 
 Attribute Exercises  (1 to 11)
 
+#################################################
+
+Step.1   --->   Write
+Step.2   --->   Divide                         20 seconds
+Step.3   --->   Draw design                    45 seconds
+Step.4   --->   controlling data by fun        15 seconds
+Step.5   --->   controlling function by data   10 seconds
+Step.6   --->   Auto create serial number      10 seconds
+Step.7   --->   Controlling str value          20 seconds
+Step.8   --->   Controlling repr value         20 seconds
+Step.9   --->   Creating many object           15 seconds
+Step.10  --->   Controlling many object        10 seconds
+
+2 minutes 45 seconds
+2 minutes
+
+Step.11   --->   Reverse engineering           30 seconds
+
+#################################################
+
 Step.1   --->   Write
 
 Car မှာ ကားနံပါတ် တာယာနဲ့ အင်ဂျင်ပါတယ်။ (VIN, tires, engine)
@@ -18,7 +38,7 @@ Engine တွင် fuel_type ပါသည်။
 
 #################################################
 
-Step.2   --->   Divide
+Step.2   --->   Divide                        (20 seconds)
 
 class   --->  
 data    --->  
@@ -34,7 +54,7 @@ method  --->
 
 #################################################
 
-Step.3   --->   Draw
+Step.3   --->   Draw                          (45 seconds)
 
 
 class Car:
@@ -51,7 +71,7 @@ class Engine:
 
 #################################################
 
-Step.4   --->   controlling data by fun 
+Step.4   --->   controlling data by fun       (15 seconds)
 
 1. pressure by pump()  
    >> self.pressure = x
@@ -62,7 +82,7 @@ Step.4   --->   controlling data by fun
         
 #################################################
 
-Step.5   --->   controlling function by data 
+Step.5   --->   controlling function by data  (10 seconds)
 
 on() and off() by state
 
@@ -71,7 +91,7 @@ if on: off
 
 #################################################
 
-Step.6   --->   Auto create serial number
+Step.6   --->   Auto create serial number     (10 seconds)
 
 n = 0
 
@@ -80,7 +100,7 @@ self.VIN = f"BMW-{Car.n:0>4}"
 
 #################################################
 
-Step.7   --->   Controlling str value (Memory address to Car No)
+Step.7   --->   Controlling str value (Memory address to Car No)    (20 seconds)
 
 <__main__.Car object at 0x104657cb0>      =>  BMW-0001(petrol engine(on))
 <__main__.Tires object at 0x1004f35f0>    =>  15 inches tires
@@ -100,7 +120,7 @@ def __str__(self):
         
 #################################################    
 
-Step.8   --->   Controlling representation str value (Memory address to Car No)
+Step.8   --->   Controlling representation str value      (20 seconds)
 
 <__main__.Car object at 0x104657cb0>      =>  BMW-0001(petrol engine(on))
 <__main__.Tires object at 0x1004f35f0>    =>  15 inches tires
@@ -117,7 +137,7 @@ def __repr__(self):
 
 ################################################# 
 
-Step.9   --->   Creating many object
+Step.9   --->   Creating many object                      (15 seconds)
 
 cars = []
 
@@ -126,7 +146,7 @@ for _ in range(100):
 
 #################################################
 
-Step.10   --->   Controlling many object
+Step.10   --->   Controlling many object                  (10 seconds)
 
 # last 10 on
 
@@ -135,8 +155,9 @@ for car in cars[-10:]:
  
 #################################################
 
-Step.11   --->   Reverse engineering
+Step.11   --->   Reverse engineering                      (30 seconds)
 
 ##################################################################################################
+
 
 """
