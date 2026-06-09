@@ -321,19 +321,24 @@ city_car.engine.on()
 
 #################################################
 
-'is a' relation, 'has a' relation
-Tightly couple, Loosely couple
+အရာဝတ္ထုတွေဟာ သီခြားစီဆိုပေမယ့် အလုပ်လုပ်တဲ့အခါမှာတော့ ပေါင်းစပ်ပြီး လုပ်ကြရပါတယ်။
 
-Parent and child, friendship
+programming မှာလည်း ဒီအယူအဆကို ယူသုံးထားပါတယ်။
 
->> Mg Mg is a son of U Ba.
->> Mg Mg has a pen.
+ပေါင်းစပ်မှု ပုံစံနှစ်မျိုး
+1. ခိုင်မြဲသော တွဲစပ်မှု (မိဘနဲ့ သားသမီးလိုမျိုး)
+2. လျော့ရဲသော တွဲစပ်မှု (အသိမိတ်ဆွေလိုမျိုး)
+Data အယူအဆအရဆိုရင်တော့ 'is a' relation နဲ့ 'has a' relation ဆိုပြီး ခေါ်ကြပါတယ်။
+OOP အယူအဆအရဆိုရင်တော့ inheritance နဲ့ composition ဆိုပြီး ခေါ်ကြပါတယ်။
 
-Tightly couple  =>  'is a', inheritance
-Loosely couple  =>  'has a', composition
+Tightly couple    =>  'is a', inheritance
+Loosely couple    =>  'has a', composition
 
-BMW is a Car.     => 'is a', inheritance       BMW(Car)
-BMW has a Tire.   =>  'has a', composition     self.tire = t
+BMW is a Car.     =>  'is a', inheritance       BMW(Car)
+BMW has a Tire.   =>  'has a', composition      self.tire = t
+
+ခြေလက်လိုမျိုး အသေထားချင်ရင် tightly coupled.
+အဝတ်အစားလိုမျိုး အလွယ်တကူ လဲလှယ်ချင်ရင် loosely coupled.
 
 #################################################
 
@@ -349,12 +354,14 @@ class BMW(Car):
 
 Composition example (Loosely couple)
 
+data တွေကို အသေမဟုတ်ပဲ ချိတ်ဆက်ချင်ရင် assignment operator သုံးရပါမယ်။
+
 
 class Car:
     def __init__(self, VIN, tires, engine):
         self.VIN = VIN
         self.tires = tires
-        self.engine = engine
+        self.engine = engine     # Car has an engine. "has a"
 
 
 class Tires:
@@ -387,7 +394,7 @@ class Engine:
 city_car = Car(VIN="BMW-0001", tires=Tires(15), engine=Engine("Petrol"))
 print(city_car.engine)
 
-city_car.engine = Engine("Gas")     <---  Loosely couple (We can change engine easily.)
+city_car.engine = Engine("Gas")     <---  Loosely couple (Engine ကို အလွယ်တကူ အသစ်လဲနိုင်ပါတယ်။)
 print(city_car.engine)
 
 ##################################################################################################
@@ -445,15 +452,15 @@ print(x.__dict__)
 
             BMW       TOYOTA
 
-
-                      A
-                      |
-                      B
-                      |
-                      C
-
 parent class, super class, base class
 child class, sub class, derived class
+
+
+ဝေမျှမှုပုံစံကို ရည်ညွှန်းချင်ရင် parent and child
+
+အုပ်စုခွဲတာကို ပေါ်လွင်စေချင်ရင် super and sub
+
+ဆင့်ပွားမှုပုံစံကို မြင်စေချင်ရင် base and derived
 
 #################################################
 
@@ -1241,6 +1248,44 @@ p2.country = "Burma"
 p50000000.country = "Burma"      <---  50
 
 citizen.country = "Burma"        <---  1
+
+#################################################
+
+Object attributes နှစ်မျိုး
+
+ပိုင်ဆိုင်မှုတွေ သတ်မှတ်ပေးတဲ့အခါ Oxygen ဘူးလိုမျိုးက တစ်ယောက်ချင်းစီကို အပိုင်ပေးလိုက်လို့ ရပါတယ်။
+
+ဆေးရုံထဲက ပန်းခြံလိုမျိုးကြတော့ လူနာတစ်ယောက်ကို ပန်းခြံတစ်ခုဆိုတာမျိုး ပေးလို့ရပေမယ့် ဖြစ်နိုင်ရင် အတူတူမျှသုံးလိုက်ရင် အကုန်အကျပိုသက်သာပါတယ်။
+
+ဒါကြောင့် object တွေကို Attributes တွေ ပေးတဲ့အခါ Oxygen ဘူးလိုမျိုး ကိုယ်ပိုင်ပစ္စည်းတွေ ရှိသလို ပန်းခြံလိုမျိုး ဘုံပိုင်ဆိုင်မှုတွေလည်း ရှိလာပါတယ်။
+
+နှစ်မျိုးလုံးက object တွေနဲ့ သက်ဆိုင်တာဖြစ်လို့ object attributes လို့ပဲ ခေါ်ကြပါတယ်။
+
+###########
+
+သီခြားပိုင်ဆိုင်မှုတွေကို Individual Property တစ်နည်းအားဖြင့် Instance Attribute (instance variable) လို့ ခေါ်ပါတယ်။
+
+ဘုံပိုင်ဆိုင်မှုတွေကိုတော့ Shared Property တစ်နည်းအားဖြင့် Class Attribute (static variable) လို့ ခေါ်ပါတယ်။
+
+###########
+
+Question .1 
+
+Class attributes ဆိုတာက class ရဲ့ ပိုင်ဆိုင်မှုလား။
+ဒါမှမဟုတ် object တွေရဲ့ ဘုံပိုင်ဆိုင်မှုလား။
+
+Answer : Class level မှာ ရေးထားလို့သာ class attributes လို့ ခေါ်ပေမယ့် အဓိကရည်ရွယ်ချက်က memory သက်သာအောင် မျှသုံးနိုင်ဖို့ ဖြစ်ပါတယ်။
+
+###########
+
+Question.2
+
+Car တစ်စီးမှာ brand အမျိုးအစားနဲ့  VIN number ဆိုတဲ့ ပိုင်ဆိုင်မှုနှစ်ခု ရှိတယ်ဆိုပါစို့။
+ဘယ်ပိုင်ဆိုင်မှုကို မျှပြီး သုံးလို့ ရနိုင်မလဲ။
+
+Answer : ဥပမာ Toyota ကုမ္ပဏီက ထုတ်တဲ့ကားတွေဆိုရင် ကားအစီးရေ ၁၀၀၀ ရှိပါစေ၊ အားလုံးရဲ့ Brand က "Toyota" ပဲ ဖြစ်မှာပါ။ အစီးတိုင်းအတွက် memory ထဲမှာ "Toyota" လို့ လိုက်ရေးနေမယ့်အစား Class Level မှာ တစ်ခါပဲ ရေးထားပြီး အားလုံးက မျှသုံးတာ ပိုထိရောက်ပါတယ်။
+
+VIN ဆိုတာကြတော့ ကားတစ်စီးချင်းစီရဲ့ ကိုယ်ပိုင် မှတ်ပုံတင်နံပါတ် (စက်နံပါတ်) လိုမျိုးပါ။ ကားတစ်စီးနဲ့ တစ်စီး မတူနိုင်တာကြောင့်  Instance Attribute အဖြစ်ပဲ ထားရပါမယ်။
 
 #################################################
 
