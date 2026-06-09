@@ -254,4 +254,1139 @@ D <- C <- A        (multilevel)
 
 ################################################################################################## 
 
+1. Laptop တွင် serial_no ပါသည်။ on, off လုပ်နိုင်သည်။
+
+class   =>   Laptop
+data    =>   serial_no
+method  =>   on(), off()
+
+class Laptop:
+    def __init__(self, n):
+        self.serial_no = n
+        
+    def on(self):
+        pass
+    
+    def off(self):
+        pass
+        
+#################################################
+        
+2. Network_Card တွင် speed ပါသည်။ သတ်မှတ် speed ဖြင့် download ဆွဲနိုင်သည်။
+
+#################################################
+
+3. 1995 တွင် ပေါ်ပေါက်ခဲ့သော DialUp ဟူသော network card အမျိုးအစား၏ download ဆွဲနိုင်သော အမြန်နှုန်း speed သည် 9600bit/s ဖြစ်သည်။
+ထိုအမြန်နှုန်းဖြင့် download ဆွဲနိုင်သည်။
+
+
+class   =>   DialUp
+data    =>   speed = 9600bit/s
+method  =>   download()
+
+class DialUp:
+    def __init__(self):
+        self.speed = 9600bit/s
+        
+    def download(self):
+        print(f"Download with {self.speed}.")
+    
+#################################################   
+
+4. 1999 တွင် ပေါ်ပေါက်ခဲ့သော ADSL ဟူသော network card အမျိုးအစား၏ download ဆွဲနိုင်သော အမြန်နှုန်း speed သည် 2000000bit/s (2Mbit/s)  ဖြစ်သည်။
+ထိုအမြန်နှုန်းဖြင့် download ဆွဲနိုင်သည်။
+
+5. 2006 တွင် ပေါ်ပေါက်ခဲ့သော Ethernet ဟူသော network card အမျိုးအစား၏ download ဆွဲနိုင်သော အမြန်နှုန်း speed သည် 10Mbit/s  ဖြစ်သည်။
+ထိုအမြန်နှုန်းဖြင့် download ဆွဲနိုင်သည်။
+
+6. 2014 တွင်  Ethernet_2014 ဟူသော network card အမျိုးအစား၏ download ဆွဲနိုင်သော အမြန်နှုန်း speed သည် 10000Mbit/s  ( တစ်စက္ကန့်လျှင် 1250 မီဂါဘိုက်) ဖြစ်သည်။
+ထိုအမြန်နှုန်းဖြင့် download ဆွဲနိုင်သည်။
+
+7. Car မှာ ကားနံပါတ် တာယာနဲ့ အင်ဂျင်ပါတယ်။ (VIN, tires, engine)
+
+8. Tires ( ကားတာယာ ) တွင် size နှင့် pressure ပါသည်။   (size, pressure, pump)
+pressure ၏ မူလတန်ဖိုးသည် 0 ( psi ) ဖြစ်သည်။
+လေထိုးသောလုပ်ဆောင်ချက်ပါသည်။ သတ်မှတ်ပေးလိုက်သော ဖိအားအတိုင်း လေထိုးပေးမည်။
+
+9. Engine တွင် fuel_type ပါသည်။     fuel_type, state, on(), off()  
+စက်နှိုး/မနှိုး ဟူသော အခြေအနေ  state ပါသည်။
+မူလအခြေအနေမှာ စက်မနှိုးထားသဖြင့် off ဖြစ်နေမည်။
+ပေးထားသော fuel_type ဖြင့် စက်နှိုး ၊ စက်ရပ် မည့်လုပ်‌ဆောင်ချက်ပါသည်။ ( on(), off() )
+
+10. Create Car of 7 (from 8 and 9) and (pump 7 and on)
+
+city_car = Car(VIN="BMW-0001", tires=Tires(15), engine=Engine("Petrol"))
+city_car.tires.pump(7)
+city_car.engine.on()
+
+#################################################
+
+'is a' relation, 'has a' relation
+Tightly couple, Loosely couple
+
+Parent and child, friendship
+
+>> Mg Mg is a son of U Ba.
+>> Mg Mg has a pen.
+
+Tightly couple  =>  'is a', inheritance
+Loosely couple  =>  'has a', composition
+
+BMW is a Car.     => 'is a', inheritance       BMW(Car)
+BMW has a Tire.   =>  'has a', composition     self.tire = t
+
+#################################################
+
+class BMW(Car):        <---   inheritance 
+    pass
+
+
+class BMW(Car):
+    def __init__(self, t):
+        self.tire = t        <---   composition
+
+#################################################
+
+Composition example (Loosely couple)
+
+
+class Car:
+    def __init__(self, VIN, tires, engine):
+        self.VIN = VIN
+        self.tires = tires
+        self.engine = engine
+
+
+class Tires:
+    def __init__(self, size):
+        self.size = size
+        self.pressure = 0
+
+    def pump(self, p):
+        print(f"pump to {p} psi.")
+
+
+class Engine:
+    def __init__(self, fuel_type):
+        self.fuel_type = fuel_type
+        self.state = "off"
+
+    def on(self):
+        print(f"{self.fuel_type} Engine On.")
+
+    def off(self):
+        print(f"{self.fuel_type} Engine Off.")
+
+    def __repr__(self):
+        return f"{self.fuel_type} Engine"
+
+
+# city_car -> "BMW-0001", 15" tires, Petrol engine
+# 7psi, on
+
+city_car = Car(VIN="BMW-0001", tires=Tires(15), engine=Engine("Petrol"))
+print(city_car.engine)
+
+city_car.engine = Engine("Gas")     <---  Loosely couple (We can change engine easily.)
+print(city_car.engine)
+
+##################################################################################################
+
+inheritance exercise
+
+11. Jet လေယာဉ်တွင် တိုက်ခိုက်မှုအမျိုးအစား ၊ အမည်နှင့် ထုတ်လုပ်သောနိုင်ငံဟူသော အချက်အလက်ပါရှိသည်။
+F35 နှင့် F22 သည် Jet လေယာဉ်ဖြစ်သည်။ 
+
+#################################################
+
+F35 နှင့် F22 သည် Jet လေယာဉ်ဖြစ်သည်။ ( is a relation ) (tightly coupled) (inheritance) 
+
+F35 is a Jet.
+F22 is a Jet.
+
+       Jet
+     /     \
+   F35     f22
+
+#################################################
+
+Jet လေယာဉ်တွင် တိုက်ခိုက်မှုအမျိုးအစား ၊ အမည်နှင့် ထုတ်လုပ်သောနိုင်ငံဟူသော အချက်အလက်ပါရှိသည်။
+
+name     -->  Jet
+data     -->  role, name, country
+method   -->
+
+
+class Jet:
+    def __init__(self, role, name, country):
+        self.role = role
+        self.name = name
+        self.country = country
+
+
+# F35 သည် Jet လေယာဉ်ဖြစ်သည်။ is a,
+class F35(Jet):
+    pass
+
+# F22 သည် Jet လေယာဉ်ဖြစ်သည်။
+class F22(Jet):
+    pass
+
+
+x = F35("Multirole", "F35-001", "USA")
+
+print(x.__dict__)
+
+#################################################
+
+                  Car
+
+                /     \\
+
+            BMW       TOYOTA
+
+
+                      A
+                      |
+                      B
+                      |
+                      C
+
+parent class, super class, base class
+child class, sub class, derived class
+
+#################################################
+
+12.
+
+I, J, K သည် A ၏ sub class ဖြစ်သည်။
+X သည် I ၏ sub class ဖြစ်သည်။
+Y သည် J ၏ sub class ဖြစ်သည်။
+Z သည် K ၏ sub class ဖြစ်သည်။
+
+ပုံဆွဲပါ။ class တည်ဆောက်ပါ။
+
+
+I, J, K သည် A ၏ sub class ဖြစ်သည်။
+
+               A
+
+           /   |   \\
+
+        I      J      K
+
+X သည် I ၏ sub class ဖြစ်သည်။
+
+            I
+            
+            |
+            
+            X
+
+Y သည် J ၏ sub class ဖြစ်သည်။
+
+            J
+            
+            |
+            
+            Y
+
+Z သည် K ၏ sub class ဖြစ်သည်။
+
+            K
+            
+            |
+            
+            Z
+
+
+               A
+
+           /   |   \\
+
+        I      J      K
+
+      /        |       \\
+
+    X          Y         Z
+
+
+class A:
+    pass
+
+
+class I(A):
+    pass
+
+
+class J(A):
+    pass
+
+
+class K(A):
+    pass
+
+
+class X(I):
+    pass
+
+
+class Y(J):
+    pass
+
+
+class Z(K):
+    pass
+
+
+#################################################
+
+13.  အောက်ပါပုံအတိုင်း class တည်ဆောက်ပါ။
+
+
+                      Fruit            seed
+
+              /         |        \\
+
+         Apple        Mango       Banana  
+
+                  /     |     \\
+
+             မချစ်စု   စိန်တလုံး   တောသရက်
+
+
+class Fruit:
+    pass
+
+
+class Apple(Fruit):
+    pass
+
+
+class Mango(Fruit):
+    pass
+
+
+class Banana(Fruit):
+    pass
+
+
+class မချစ်စု(Mango):
+    pass
+
+
+class စိန်တလုံး(Mango):
+    pass
+
+
+class တောသရက်(Mango):
+    pass
+
+
+#################################################
+
+multiple inheritance exercises
+
+14. ပန်းသီးနှင့် သစ်တော်သီးသည် သစ်သီးများဖြစ်ကြသည်။ 
+
+ပန်းသစ်တော်သီးသည် ပန်းသီးနှင့် သစ်တော်သီးနှစ်မျိုးလုံးမှ မျိုးဗီဇများ အမွေဆက်ခံထားသည်။
+
+ထို့ကြောင့် ပန်းသစ်တော်သီးသည် ပန်းသီးလည်း ဖြစ်သလို သစ်တော်သီးလည်းဖြစ်သည်။
+
+ပုံဆွဲပြီး class တည်ဆောက်ပါ။
+
+
+                       သစ်သီး
+
+                     /        \\
+
+                ပန်းသီး           သစ်တော်သီး
+
+                    \\          /
+
+                     ပန်းသစ်တော်သီး    
+                     
+
+class သစ်သီး:
+    pass
+
+
+class ပန်းသီး(သစ်သီး):
+    color = "white"
+    pass
+
+
+class သစ်တော်သီး(သစ်သီး):
+    taste = "sweet"
+    pass
+
+
+class ပန်းသစ်တော်သီး(ပန်းသီး, သစ်တော်သီး):
+    pass
+
+
+x = ပန်းသစ်တော်သီး()
+print(x.color)
+print(x.taste)
+
+
+#################################################
+
+15.
+
+A, B သည် Y ဖြစ်သည်။
+C, D, E သည် Z ဖြစ်သည်။
+X သည် A, B, C, D, E, F ဖြစ်သည်။
+ပုံဆွဲပြီး class တည်ဆောက်ပါ။
+
+#################################################
+
+
+X သည် A, B, C, D, E, F ဖြစ်သည်။
+
+
+A, B သည် Y ဖြစ်သည်။
+
+                    Y
+
+                 /     \\
+
+               A           B
+
+
+C, D, E သည် Z ဖြစ်သည်။               
+
+
+                    Z
+
+                 /   |  \\
+
+               C     D     E
+
+
+X သည် A, B, C, D, E, F ဖြစ်သည်။
+
+
+               A    B   C   D   E   F
+
+                \\   \\ |  /  /  /
+
+                        X
+
+#################################################
+
+               Y          Z             
+
+             /  \\     /  |  \\    
+
+             A    B    C   D   E   F
+
+               \\   \\ |  /  /  /
+
+                  \\ \\| / / /
+
+                       X     
+                       
+                       X  ABY CDEZ F
+                
+
+
+#                 Y
+
+#            A   /\   B
+#                \/
+
+#                 X
+
+
+class Y:
+    pass
+class Z:
+    pass
+class F:
+    pass
+
+class A(Y):
+    pass
+class B(Y):
+    pass
+
+class C(Z):
+    pass
+class D(Z):
+    pass
+class E(Z):
+    pass
+
+class X(A, B, C, D, E, F):
+    pass
+
+print(X.__mro__)  # X  ABY CDEZ F
+
+
+#################################################
+
+16. X ၏ attributes ကို ရှာဖွေပါက မည့်သည့်အစီအစဉ်အတိုင်း ရှာဖွေမည်နည်း။
+
+               Y         Z
+
+             /  \\    /  |  \\
+
+             A   B   C   D   E    F
+
+               \\   \\ |  /  /  /
+
+                  \\ \\| / / /
+
+                       X      
+
+Method Resolution Order = X ->  A -> B -> Y  -> C -> D -> E -> Z  -> F
+
+
+class Y:
+    a = "Y"
+    pass
+class Z:
+    a = "Z"
+    pass
+
+class A(Y):
+    a = "A"
+    pass
+class B(Y):
+    a = "B"
+    pass
+
+class C(Z):
+    a = "C"
+    pass
+class D(Z):
+    a = "D"
+    pass
+class E(Z):
+    a = "E"
+    pass
+
+class F:
+    a = "F"
+    pass
+
+class X(A, B, C, D, E, F):
+    a = "X"
+    pass
+
+
+print(X.a) # X
+
+#################################################
+
+17. Method Resolution Order Exercise.1  => X BAY CDEZ F
+
+               Y         Z
+
+             /  \\    /  |  \\
+
+             B   A   C   D   E    F
+
+               \\   \\ |  /  /  /
+
+                  \\ \\| / / /
+
+                       X      
+                       
+                                             
+class X(B, A, C, D, E, F):
+    pass
+
+#################################################
+
+18. Method Resolution Order Exercise.2  => X CDEZ ABY F   
+
+                Z             Y   
+
+             /  |  \\        / \
+
+            C   D     E     A   B   F
+
+             \\   \\   |   /  /  /
+
+                  \\ \\| / / /
+
+                       X
+
+
+class X(C, D, E, A, B, F):
+    pass
+
+
+#################################################
+
+19. Method Resolution Order Exercise.3  => X F CDEZ ABY
+
+                 Z             Y   
+
+              /  |  \\        / \
+
+       F    C    D     E     A   B  
+
+         \\    \\   \\   |   /  /  
+
+              \\   \\ \\| / / 
+
+                       X
+
+
+class Y:
+    a = "Y"
+    pass
+class Z:
+    a = "Z"
+    pass
+
+class A(Y):
+    a = "A"
+    pass
+class B(Y):
+    a = "B"
+    pass
+
+class C(Z):
+    a = "C"
+    pass
+class D(Z):
+    a = "D"
+    pass
+class E(Z):
+    a = "E"
+    pass
+
+class F:
+    a = "F"
+    pass
+
+
+class X(F, C, D, E, A, B):
+    a = "X"
+    pass
+
+
+print(X.__mro__)
+
+#################################################
+
+20. Method Resolution Order Exercise.4  
+
+=> Cross diamond example
+=> X  A C BY DEZ F                                 
+
+
+                 Y       Z
+
+               /    X    |  \\
+
+              A   C   B  D   E    F
+
+               \\   \\  |  /  /  /
+
+                  \\ \\ | / / /
+
+                        X       
+
+
+class X(A, C, B, D, E, F):
+    pass
+
+
+#################################################
+"""
+# A consistent method resolution order (MRO)
+
+#                 Y
+
+#            A   /\   B
+#                \/
+
+#                 X
+
+# A, B သည် Y ဖြစ်သည်။
+# X သည် A, B ဖြစ်သည်။  (A, B, Y)
+"""
+
+class X(A, B):
+    pass
+
+
+class X(Y, A, B):
+    pass
+
+
+"""
+#################################################
+
+# Not a consistent method resolution order
+
+#                 Y
+#              /
+
+#          /    /   \
+#             A      B
+#          \    \   /
+#            \
+#              \
+#                 X
+
+
+# X သည် Y, A, B ဖြစ်သည်။ (Diamond problem) (Y, A, B, Y)
+# TypeError: Cannot create a consistent method resolution order (MRO)
+"""
+#################################################  
+                       
+
+class Y:
+    pass
+class Z:
+    pass
+class F:
+    pass
+
+class A(Y):
+    pass
+class B(Y):
+    pass
+
+class C(Z):
+    pass
+class D(Z):
+    pass
+class E(Z):
+    pass
+
+class X(A, B, C, D, E, F):
+    pass
+
+
+print(X.__mro__)
+
+#################################################
+                       
+21. Method Resolution Order Exercise.5 
+
+
+               Y         Z
+
+             /  \\    /  |  \\
+
+             A   B   C   D   E    F
+
+               \\   \\ |  /  /  /
+
+                  \\ \\| / / /
+
+                       X     
+
+=> G is Y.
+=> X is G.
+=> X AGBY CDEZ F
+
+
+Y
+|
+G      <---
+|
+X
+
+               Y              Z
+
+             /  | \\       /  |  \\
+
+             A  G  B      C   D   E    F
+
+               \\ \\  \\  |  /  /  /
+
+                  \\ \\ \\| / / /
+
+                         X       
+
+class G(Y):
+    pass
+    
+
+class X(A, G, B, C, D, E, F):
+    pass
+    
+
+#################################################
+
+22. Method Resolution Order Exercise.6 
+ 
+                Y              Z
+
+             /  | \\       /  |  \\
+
+             A  G  B      C   D   E    F
+
+               \\ \\  \\  |  /  /  /
+
+                  \\ \\ \\| / / /
+
+                         X     
+
+
+=> H is Z.
+=> X is H.
+=> X AGBY CHDEZ F
+
+Z
+|
+H    <---
+|
+X  
+
+"""
+#              Y              Z
+
+#             / | \       / / | \
+
+#             A G  B    C H  D   E   F
+
+#               \ \ \   | | /  /  /
+
+#                  \ \\ | |/ / /
+
+#                        X
+
+"""
+
+class H(Z):
+    pass
+    
+
+class X(A, G, B, C, H, D, E, F):
+    pass
+
+
+#################################################
+
+23. Method Resolution Order Exercise.7  
+
+=> X is I.
+=> X AGBY CHDEZ F I
+
+  I
+  |
+  X
+
+
+"""
+#              Y              Z
+
+#             / | \       / / | \
+
+#             A G  B    C H  D  E   F  I
+
+#               \ \ \   | | /  /  / /
+
+#                  \ \\ | |/ /  / /
+
+#                        X
+
+
+"""
+
+class I:
+    pass
+    
+
+class X(A, G, B, C, H, D, H, E, F, I):
+    pass
+
+
+
+#################################################
+
+24. Method Resolution Order Exercise.8  
+
+=> X is J.
+=> X J AGBY CHDEZ F I
+
+  J
+  |
+  X
+
+
+"""
+#              Y              Z
+
+#             / | \       / / | \
+
+#         J  A G  B     C H  D  E   F  I
+
+#           \   \ \ \   | | /  /  / /
+
+#               \  \ \\ | |/ /  / /
+
+#                        X
+
+"""
+
+class J:
+    pass
+    
+
+class X(J, A, G, B, C, H, D, E, Z, F, I):
+    pass
+
+
+#################################################
+
+25. Method Resolution Order Exercise.9 
+
+=> All is K.
+
+               Y         Z
+
+             /  \\    /  |  \\  
+
+             A   B   C   D   E     F
+
+               \\   \\ |  /  /  /
+
+                  \\ \\| / / /
+
+                       X   
+                       
+#################################################
+
+=> All is K.
+
+                     K
+
+
+                /      \\   \\
+
+               Y         Z
+
+             /  \\    /  |  \\  \\
+
+             A   B   C   D   E    F
+
+               \\   \\ |  /  /  /
+
+                  \\ \\| / / /
+
+                       X   
+
+
+#################################################
+
+class K:
+    a = "K"
+    pass
+
+class Y(K):
+    pass
+class Z(K):
+    pass
+class F(K):
+    pass
+
+class A(Y):
+    pass
+class B(Y):
+    pass
+
+class C(Z):
+    pass
+class D(Z):
+    pass
+class E(Z):
+    pass
+
+class X(A, B, C, D, E, F):  
+    pass
+
+print(X.a)
+
+#################################################
+
+Object Attributes (2)
+
+1. Individual property, Object attribute, Instance attribute
+2. Shared property, Class attribute, Static attribute
+
+'property' refers to 'data & method'.
+'attribute' refers to 'data & method'.
+
+BMW-0001       <--- Individual
+"BMW"          <--- Shared
+
+ID             <--- Individual
+Country name   <--- Shared
+
+#################################################
+
+name, age, ID                  50 + 50 + 50
+country_name = "Myanmar"       1
+precedence = "U BA"            1
+
+1. Memory
+total = 250 millions
+total = 150 millions + 1 + 1
+
+2. Flexiable
+
+p1.country = "Burma"
+p2.country = "Burma"
+...
+p50000000.country = "Burma"      <---  50
+
+citizen.country = "Burma"        <---  1
+
+#################################################
+
+26. What should be Class level data?
+
+50 millions people
+
+1. Name       -  obj    =>   500 millions   =>  500 MB
+2. ID         -  obj    =>   500 millions   =>  500 MB
+3. age        -  obj    =>   500 millions   =>  500 MB 
+4. "Myanmar"  -  obj    =>   500 millions   =>  500 MB 
+                                            +   2000 MB
+
+
+1. Name       -  obj    =>   500 millions   =>  500 MB
+2. ID         -  obj    =>   500 millions   =>  500 MB
+3. age        -  obj    =>   500 millions   =>  500 MB 
+4. "Myanmar"  -  cls           1            =>  100 bytes 
+
+                                            +   1500 MB + 100 bytes 
+
+#################################################
+
+{'name': 'p1', 'id': '000000001', 'age': 20, 'country': 'Myanmar'}
+{'name': 'p2', 'id': '000000002', 'age': 30, 'country': 'Myanmar'}
+
+
+class X:
+    def __init__(self, name, id, age, country):
+        self.name = name
+        self.id = id
+        self.age = age 
+        self.country = country
+
+
+p1 = X(name="p1", id="000000001", age=20, country="Myanmar")
+p2 = X(name="p2", id="000000002", age=30, country="Myanmar")
+
+
+print(p1.__dict__)
+print(p2.__dict__)
+
+p1.country = "Burma"
+p2.country = "Burma"
+
+print(p1.__dict__)
+print(p2.__dict__)
+
+print(p1.country)
+print(p2.country)
+
+#################################################
+
+{'name': 'p1', 'id': '000000001', 'age': 20}
+{'name': 'p2', 'id': '000000002', 'age': 20}
+
+
+class X:
+    country = "Myanmar"  # class level data
+
+    def __init__(self, name, id, age):
+        self.name = name
+        self.id = id
+        self.age = age
+
+
+p1 = X(name="p1", id="000000001", age=20)
+p2 = X(name="p2", id="000000002", age=20)
+
+print(p1.__dict__)
+print(p2.__dict__)
+
+print(p1.country)
+print(p2.country)
+
+X.country = "Burma"
+
+print(p1.country)
+print(p2.country)
+
+#################################################
+
+{'name': 'p1', 'id': '000000001', 'age': 20}         300 bytes
+{'name': 'p2', 'id': '000000002', 'age': 20}         300 bytes
+
+country = "Myanmar"  =>  100 bytes                   create once, less memory usage
+
+X.country = "Burma"                                  update once
+
+#################################################
+
+27. Use inheritance for the following code.
+
+
+class Male:
+    gender = "male"
+    country = "Myanmar"
+    percedence = "U Ba"
+    system = "Democracy"
+
+    def __init__(self, id, name, age):
+        self.id = id
+        self.name = name
+        self.age = age
+
+
+class Female:
+    gender = "female"
+    country = "Myanmar"
+    percedence = "U Ba"
+    system = "Democracy"
+
+    def __init__(self, id, name, age):
+        self.id = id
+        self.name = name
+        self.age = age
+
+
+#################################################
+
+
+class X:
+    country = "Myanmar"
+    percedence = "U Ba"
+    system = "Democracy"
+
+    def __init__(self, id, name, age):
+        self.id = id
+        self.name = name
+        self.age = age
+
+
+class Male(X):
+    gender = "male"
+
+
+class Female(X):
+    gender = "female"
+
+
+#################################################
+
+p1 = Male(id="123456789", name="Mg Mg", age=20)
+print(p1.gender)
+print(p1.country)
+
+##################################################################################################
+
 """
