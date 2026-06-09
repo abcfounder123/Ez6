@@ -360,6 +360,8 @@ object ပျက်စီးတဲ့အခါ ပေါင်းစပ်ထာ
 
 >> self.tire = t  
 
+အလွယ်မှတ်ရရင် Tires ကို အပြင်မှာ သီးသန့်ဖန်တီးရင် weak ပေါ့။
+
 #################################################
 
 Composition / aggregation example (Loosely couple)
