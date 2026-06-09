@@ -350,9 +350,19 @@ class BMW(Car):
     def __init__(self, t):
         self.tire = t        <---   composition
 
+တကယ်‌တော့ has a relation မှာလည်း strong နဲ့ weak ဆိုပြီး နှစ်ခု ရှိပါသေးတယ်။
+
+object ပျက်စီးတဲ့အခါ ပေါင်းစပ်ထားတာပါ ပျက်စီးခဲ့ရင် strong has a တစ်နည်းအားဖြင့် composition 
+
+>> self.tire = Tires(15)
+
+object ပျက်စီးတဲ့အခါ ပေါင်းစပ်ထားတာက ဆက်ပြီးရှိနေခဲ့ရင် weak has a တစ်နည်းအားဖြင့် aggregation
+
+>> self.tire = t  
+
 #################################################
 
-Composition example (Loosely couple)
+Composition / aggregation example (Loosely couple)
 
 data တွေကို အသေမဟုတ်ပဲ ချိတ်ဆက်ချင်ရင် assignment operator သုံးရပါမယ်။
 
