@@ -1456,6 +1456,96 @@ p1 = Male(id="123456789", name="Mg Mg", age=20)
 print(p1.gender)
 print(p1.country)
 
+#################################################
+
+28. Create relations for the following classes.
+
+Myanmar Human
+Yangon Human
+Mandalay Human
+America Human
+Newyork Human
+Human
+
+
+                              Human (head=1)
+
+                            /                  \\
+
+            Myanmar Human                        America Human
+
+           /        \\                                \\
+
+   Yangon Human   Mandalay Human                      Newyork Human
+
+
+800 billions , 600 bytes, 100 bytes
+
+obj, class level, inheritance
+
+#################################################
+
+29. Create relations for the following classes.
+
+Car
+Engine Car
+Electric Car
+Diesel Car
+Petrol Car
+
+                       Car
+
+                    /       \\
+
+           Engine Car         Electric Car
+
+           /    \\
+
+   Diesel Car     Petrol Car
+
+#################################################
+
+30. Draw MRO for the following relations.
+
+A is a F.    (ပန်းသီး is a Fruit.)
+T is a F.    (သစ်တော်သီး is a Fruit.)
+O is a F.    (Orange is a Fruit.)
+
+AT is a A.   (ပန်းသစ်တော်သီးသည် ပန်းသီးဖြစ်သည်။)
+AT is a T.   (ပန်းသစ်တော်သီးသည် သစ်တော်သီးဖြစ်သည်။)
+(ပန်းသစ်တော်သီးသည် ပန်းသီးလည်း ဖြစ်သလို သစ်တော်သီးလည်းဖြစ်သည်။)
+
+O1 is a O.
+O2 is a O.
+O3 is a O.
+                             F
+
+                         /   |   \\
+
+                        A    T       O
+
+                        \\   /    /  |  \\
+
+                          AT     O1  O2   O3
+                          
+                          TO
+
+#################################################
+
+Knowledges                               
+
+1. comma + space
+2. operator => s + operator +  s
+3. fun, class  => line 2
+4. while, if, for  =>  line 1
+5. normal program  =>  no line, line 1
+6. class name => UpperCamealCase
+7. all name => lower case, lower_snake_case
+8. constant => UPPER CASE
+
+9. Diamond problam (YAB => YABY)
+10. MRO
+
 ##################################################################################################
 
 """
